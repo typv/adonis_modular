@@ -1,0 +1,38 @@
+version: '3'
+services:
+  node:
+    image: node:20.12.1-alpine
+    container_name: adonis_modular_node_local
+    tty: true
+    volumes:
+      - ./:/work
+    ports:
+      - 3334:${PORT}
+    environment:
+      - HOST=0.0.0.0
+    working_dir: /work
+    networks:
+      - adonis_modular
+    restart: unless-stopped
+  db:
+    image: postgres:14
+    container_name: adonis_modular_postgres_local
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./docker/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 54432:5432
+    restart: unless-stopped
+    networks:
+      adonis_modular:
+        ipv4_address: 172.21.0.3
+
+networks:
+  adonis_modular:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
