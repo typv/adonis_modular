@@ -1,0 +1,3 @@
+[submodule "app/modules/user"]
+	path = app/modules/user
+	url = git@github.com:typv/adonis_modular-user.git
