@@ -17,6 +17,7 @@
 
 ## 1. Prerequisite
 
+### 1.1 Add environment variables
 In the root folder, find the .env file and change the following values
 
 ```bash
@@ -29,6 +30,12 @@ In the root folder, find the .env file and change the following values
   DB_USERNAME=postgres
   DB_PASSWORD=[your_password]
   DB_DATABASE=[your_database]
+```
+
+### 1.2 Load all sub-modules
+
+```
+git submodule update --init --recursive
 ```
 
 ## 2. Setup docker
