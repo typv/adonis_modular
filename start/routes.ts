@@ -40,9 +40,7 @@ async function autoloadModules () {
     routeFiles.map(async (file) => {
       await import(file)
     })
-  ).then(() => {
-    console.log('All routes have been imported successfully.');
-  }).catch((err) => {
+  ).catch((err) => {
     console.error('Error importing routes:', err);
   });
 }

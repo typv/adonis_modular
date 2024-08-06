@@ -1,5 +1,8 @@
 import env from '#start/env'
 import { defineConfig } from '@adonisjs/lucid'
+import combinedConfig from "#config/module-connections-loader";
+
+const moduleConnections = await combinedConfig()
 
 const dbConfig = defineConfig({
   connection: 'postgres',
@@ -18,6 +21,7 @@ const dbConfig = defineConfig({
         paths: ['database/migrations'],
       },
     },
+    ...moduleConnections,
   },
 })
 
