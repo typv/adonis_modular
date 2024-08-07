@@ -50,7 +50,14 @@ git submodule update --init --recursive
 
 ## 3. Other
 
-migration:
+### 3.1 Migration:
+
+Default:
 ```
 make migrate
+```
+
+Connection (For each module)
+```
+make migrate connection=[connection_name]
 ```

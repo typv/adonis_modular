@@ -25,6 +25,8 @@ setup:
 	make install
 buildAdonis:
 	docker-compose exec node yarn build
+
+connection := postgres
 migrate:
-	docker-compose exec node node ace migration:run
+	docker-compose exec node node ace migration:run --connection=$(connection)
 
