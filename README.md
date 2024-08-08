@@ -55,9 +55,11 @@ git submodule update --init --recursive
 Default:
 ```
 make migrate
+make migrateRollback
 ```
 
 Connection (For each module)
 ```
 make migrate connection=[connection_name]
+make migrateRollback connection=[connection_name]
 ```

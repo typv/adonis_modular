@@ -29,4 +29,6 @@ buildAdonis:
 connection := postgres
 migrate:
 	docker-compose exec node node ace migration:run --connection=$(connection)
+migrateRollback:
+	docker-compose exec node node ace migration:rollback --connection=$(connection)
 
