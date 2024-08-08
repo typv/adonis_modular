@@ -1,4 +1,7 @@
 import router from '@adonisjs/core/services/router'
 const AuthController = () => import('#modules/auth/controllers/auth.controller')
 
-router.post('login', [AuthController, 'login'])
+
+router.group(() => {
+  router.post('login', [AuthController, 'login'])
+}).prefix('/api/v1/auth')
