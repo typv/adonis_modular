@@ -12,6 +12,6 @@ export const DefaultDBConfig: ConnectionConfig = {
   },
   migrations: {
     naturalSort: true,
-    paths: ['database/migrations'],
+    paths: ['common/database/migrations'],
   },
 }
